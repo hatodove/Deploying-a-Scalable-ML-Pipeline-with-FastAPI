@@ -66,6 +66,7 @@ def inference(model, X):
     """
     return model.predict(X)
 
+
 def save_model(model, path):
     """Serializes model to a file.
 
@@ -79,10 +80,12 @@ def save_model(model, path):
     with open(path, "wb") as f:
         pickle.dump(model, f)
 
+
 def load_model(path):
     """Loads pickle file from `path` and returns it."""
     with open(path, "rb") as f:
         return pickle.load(f)
+
 
 def performance_on_categorical_slice(
     data, column_name, slice_value, categorical_features, label, encoder, lb, model
