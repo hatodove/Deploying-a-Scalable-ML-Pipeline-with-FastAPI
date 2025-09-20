@@ -4,9 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 import sys
 import os
-from ml.data import process_data
-from ml.model import train_model, inference, compute_model_metrics
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from ml.data import process_data  # noqa: E402
+from ml.model import train_model, inference, compute_model_metrics  # noqa: E402
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 CAT_FEATURES = [
