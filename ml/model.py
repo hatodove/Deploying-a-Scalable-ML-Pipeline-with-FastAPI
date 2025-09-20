@@ -3,6 +3,7 @@ from ml.data import process_data
 # TODO: add necessary import
 import joblib
 import os
+import pickle
 from sklearn.linear_model import LogisticRegression
 
 
@@ -22,7 +23,7 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    model = LogisticRegression(max_iter=2000, n_jobs=-1)
+    model = LogisticRegression(max_iter=5000, n_jobs=-1)
     model.fit(X_train, y_train)
     return model
 
@@ -63,8 +64,7 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    preds = model.predict(X)
-    return preds
+    return model.predict(X)
 
 
 def save_model(model, path):
@@ -77,13 +77,13 @@ def save_model(model, path):
     path : str
         Path to save pickle file.
     """
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    joblib.dump(model, path)
-
+    with open(path, "wb") as f:
+        pickle.dump(model, f)
 
 def load_model(path):
     """Loads pickle file from `path` and returns it."""
-    return joblib.load(path)
+    with open(path, "rb") as f:
+        return pickle.load(f)
 
 
 def performance_on_categorical_slice(
