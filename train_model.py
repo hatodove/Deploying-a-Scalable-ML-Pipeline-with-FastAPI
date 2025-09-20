@@ -97,7 +97,7 @@ with open("slice_output.txt", "w") as f:
             p, r, fb = performance_on_categorical_slice(
                 # your code here
                 # use test, col and slicevalue as part of the input
-	        test,
+                test,
                 column_name=col,
                 slice_value=slicevalue,
                 categorical_features=cat_features,

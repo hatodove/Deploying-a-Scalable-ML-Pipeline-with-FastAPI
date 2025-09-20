@@ -62,4 +62,3 @@ def test_compute_model_metrics_known_values():
     assert abs(p - 0.5) < 1e-9
     assert abs(r - 0.5) < 1e-9
     assert abs(f1 - 0.5) < 1e-9
-

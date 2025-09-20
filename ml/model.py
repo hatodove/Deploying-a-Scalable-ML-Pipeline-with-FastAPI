@@ -1,8 +1,8 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
 # TODO: add necessary import
-import joblib
-import os
+# import joblib
+# import os
 import pickle
 from sklearn.linear_model import LogisticRegression
 
@@ -66,7 +66,6 @@ def inference(model, X):
     """
     return model.predict(X)
 
-
 def save_model(model, path):
     """Serializes model to a file.
 
@@ -84,7 +83,6 @@ def load_model(path):
     """Loads pickle file from `path` and returns it."""
     with open(path, "rb") as f:
         return pickle.load(f)
-
 
 def performance_on_categorical_slice(
     data, column_name, slice_value, categorical_features, label, encoder, lb, model
